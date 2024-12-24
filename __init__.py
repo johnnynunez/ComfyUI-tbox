@@ -17,11 +17,18 @@ from .nodes.video.load_node import LoadVideoNode
 from .nodes.video.save_node import SaveVideoNode
 from .nodes.video.info_node import VideoInfoNode
 from .nodes.video.batch_node import BatchManagerNode
+from .nodes.preprocessor.canny_node import Canny_Preprocessor
+from .nodes.preprocessor.lineart_node import LineArt_Preprocessor
+from .nodes.preprocessor.lineart_node import Lineart_Standard_Preprocessor
 from .nodes.preprocessor.midas_node import MIDAS_Depth_Map_Preprocessor
 from .nodes.preprocessor.dwpose_node import DWPose_Preprocessor, AnimalPose_Preprocessor
 from .nodes.preprocessor.densepose_node import DensePose_Preprocessor
+from .nodes.face.face_enhance_node import GFPGANNode
+from .nodes.other.vram_node import PurgeVRAMNode
 
 NODE_CLASS_MAPPINGS = {
+    "PurgeVRAMNode": PurgeVRAMNode,
+    "GFPGANNode": GFPGANNode,
     "MaskAddNode": MaskAddNode,
     "ImageLoader": LoadImageNode,
     "ImageSaver": SaveImageNode,
@@ -38,9 +45,14 @@ NODE_CLASS_MAPPINGS = {
     "DWPosePreprocessor": DWPose_Preprocessor,
     "AnimalPosePreprocessor": AnimalPose_Preprocessor,
     "MiDaSDepthPreprocessor": MIDAS_Depth_Map_Preprocessor,
+    "CannyPreprocessor": Canny_Preprocessor,
+    "LineArtPreprocessor": LineArt_Preprocessor,
+    "LineartStandardPreprocessor": Lineart_Standard_Preprocessor,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
+    "PurgeVRAMNode":"PurgeVRAMNode",
+    "GFPGANNode": "GFPGANNode",
     "MaskAddNode": "MaskAddNode",
     "ImageLoader": "Image Load",
     "ImageSaver": "Image Save",
@@ -56,7 +68,10 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "DensePosePreprocessor": "DensePose Estimator",
     "DWPosePreprocessor": "DWPose Estimator",
     "AnimalPosePreprocessor": "AnimalPose Estimator",
-    "MiDaSDepthPreprocessor": "MiDaS Depth Estimator"
+    "MiDaSDepthPreprocessor": "MiDaS Depth Estimator",
+    "CannyPreprocessor": "Canny Edge Estimator",
+    "LineArtPreprocessor": "Realistic Lineart",
+    "LineartStandardPreprocessor": "Standard Lineart",
 }
 
 
